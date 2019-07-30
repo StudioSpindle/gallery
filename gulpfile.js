@@ -3,6 +3,10 @@ const browsersync = require('browser-sync').create();
 const minifyCSS = require('gulp-csso');
 const scss = require('gulp-dart-sass');
 const concat = require('gulp-concat');
+const webpack = require('webpack-stream');
+
+const sourceMaps = process.env.NODE_ENV === 'production' ? '' : { sourcemaps: true };
+const mode = process.env.NODE_ENV === 'production' ? 'production' : 'development';
 
 const SOURCES = {
   HTMLFolder: './src',
@@ -27,11 +31,9 @@ function browserSyncReload(done) {
 }
 
 function html() {
-  return gulp.src(`${SOURCES.HTMLFolder}/index.html`)
+  return gulp.src(`${SOURCES.HTMLFolder}/*.html`)
     .pipe(gulp.dest(SOURCES.buildFolder));
 }
-
-const sourceMaps = process.env.NODE_ENV === 'production' ? '' : { sourcemaps: true };
 
 function css() {
   return gulp.src(`${SOURCES.SCSSFolder}/main.scss`, sourceMaps)
@@ -41,7 +43,15 @@ function css() {
 }
 
 function js() {
-  return gulp.src(`${SOURCES.JSFolder}/*.js`, sourceMaps)
+  return gulp.src(`${SOURCES.JSFolder}/entry.js`, sourceMaps)
+    .pipe(
+      webpack({
+        output: {
+          filename: '[name].js',
+        },
+        mode,
+      }),
+    )
     .pipe(concat('app.min.js'))
     .pipe(gulp.dest(`${SOURCES.buildFolder}/js`, sourceMaps));
 }
