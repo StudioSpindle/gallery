@@ -18,8 +18,17 @@ npm run watch
 
 This starts a local development server to work on.
 
+## Testing
+
+```
+npm run test
+```
 
 ## Linting
+
+```
+npm run test:lint
+```
 
 _Note: Usually in a project the linting can be done on the git commit hook but for now out of scope for this assignment_
 
