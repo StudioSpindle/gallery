@@ -1,5 +1,14 @@
-$background-color: #ccc;
 
+// Generic
+@import './reset';
+@import './colors';
+@import './scale';
+
+// Modules
+@import './modules/card';
+@import './modules/gallery';
+
+// Temporarily undefined 
 body {
-  background-color: $background-color;
+  background-color: $grey;
 }

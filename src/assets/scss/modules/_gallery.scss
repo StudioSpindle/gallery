@@ -1,0 +1,25 @@
+
+.gallery {
+  display: grid;
+  grid-column-gap: $scale-medium;
+  grid-row-gap: $scale-medium;
+  padding: $scale-large;
+}
+
+@media (min-width: 512px) {
+  .gallery {
+    grid-template-columns: 50% 50%;
+  }
+}
+
+@media (min-width: 800px) {
+  .gallery {
+    grid-template-columns: 33% 33% 33%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .gallery {
+    grid-template-columns: 25% 25% 25% 25%;
+  }
+}
