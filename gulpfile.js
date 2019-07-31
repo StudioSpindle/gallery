@@ -21,6 +21,7 @@ const SOURCES = {
   HTMLFolder: './src',
   SCSSFolder: './src/assets/scss',
   JSFolder: './src/assets/js',
+  ImagesFolder: './src/assets/images',
   buildFolder: './build',
 };
 
@@ -78,6 +79,11 @@ function js() {
     .pipe(gulp.dest(`${SOURCES.buildFolder}/js`, sourceMaps));
 }
 
+function images() {
+  return gulp.src(`${SOURCES.ImagesFolder}/favicon.ico`)
+    .pipe(gulp.dest(`${SOURCES.buildFolder}/images`));
+}
+
 function watchFiles() {
   gulp.watch(`${SOURCES.HTMLFolder}/*`, html);
   gulp.watch(`${SOURCES.HTMLFolder}/**/*.scss`, css);
@@ -98,5 +104,6 @@ const watch = gulp.parallel(watchFiles, browserSync);
 
 exports.js = js;
 exports.css = css;
+exports.images = images;
 exports.watch = watch;
-exports.default = gulp.parallel(html, css, js);
+exports.default = gulp.parallel(html, css, js, images);

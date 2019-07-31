@@ -6,6 +6,7 @@
   "scripts": {
     "test": "jest && npm run test:lint",
     "test:lint": "eslint *.js && sass-lint -v",
+    "jest:watch": "jest --watch",
     "build": "gulp",
     "build:prod": "cross-env NODE_ENV=production gulp",
     "watch": "gulp watch"
