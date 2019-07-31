@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest && npm run test:lint",
     "test:lint": "eslint *.js && sass-lint -v",
     "build": "gulp",
     "build:prod": "cross-env NODE_ENV=production gulp",
