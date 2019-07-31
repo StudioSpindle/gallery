@@ -1,4 +1,22 @@
 
+Example of a gallery project using the Flickr API.
+
+# Fickr API
+
+In order for this project to work you have to use an API key. Request one here: https://www.flickr.com/services/api/misc.api_keys.html
+
+And place this key in an file named .env at the root of this project.
+
+Example:
+
+```
+$ touch .env; open .env;
+```
+
+**./.env**
+```
+API_KEY = <your-key>
+```
 
 # Build production
 
