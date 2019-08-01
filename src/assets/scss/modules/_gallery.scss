@@ -1,25 +1,35 @@
 
+@import '../mixins/media-queries';
+
 .gallery {
-  display: grid;
-  grid-column-gap: $scale-medium;
-  grid-row-gap: $scale-medium;
-  padding: $scale-large;
+  display: flex;
+  padding: $scale-l;
 }
 
-@media (min-width: 512px) {
+.gallery__item {
+  display: flex;
+  flex-direction: column;
+}
+
+@include for-size(phone-only) {
   .gallery {
-    grid-template-columns: 50% 50%;
+    flex-direction: column;
+  }
+
+  .gallery__item {
+    margin-bottom: $scale-xl;
   }
 }
 
-@media (min-width: 800px) {
-  .gallery {
-    grid-template-columns: 33% 33% 33%;
+@include for-size(tablet-portrait-up) {
+  .gallery__item {
+    margin: 0 $scale-l;
   }
 }
 
-@media (min-width: 1024px) {
+@include for-size(tablet-landscape-up) {
   .gallery {
-    grid-template-columns: 25% 25% 25% 25%;
+    flex-direction: row;
+    // max-width: 50%;
   }
 }

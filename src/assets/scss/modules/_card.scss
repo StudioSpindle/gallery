@@ -1,9 +1,15 @@
 
 .card {
   background-color: $white;
+  border-radius: 1.5rem;
   width: 100%;
 }
 
 .card__image {
-  width: 100%;
+  border-top-left-radius: 1.5rem;
+  border-top-right-radius: 1.5rem;
+}
+
+.card__title {
+  padding: $scale-m;
 }
