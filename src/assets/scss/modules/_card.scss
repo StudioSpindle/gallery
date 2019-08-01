@@ -3,6 +3,7 @@
   background-color: $white;
   border-radius: 1.5rem;
   width: 100%;
+  min-height: 400px; // determines the height calc
 }
 
 .card__image {

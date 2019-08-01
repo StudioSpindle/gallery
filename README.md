@@ -42,6 +42,14 @@ This starts a local development server to work on.
 npm run test
 ```
 
+### methods
+
+This project uses [testing-library](https://testing-library.com/docs/dom-testing-library/intro)
+
+The main goal of this approach is to test the gallery from a users perspective. So implementation details are not tested. More on this approach in [this article](https://kentcdodds.com/blog/testing-implementation-details) by Kent C. Dodds.
+
+The unit tests are located next to the functions itself to rais awareness that they're tested. Also it improves the urgency to adjust tests once you adjust a fuction. The integration tests are located in the `__test__` folder.
+
 ## Linting
 
 ```

@@ -1,14 +1,4 @@
-/**
- * @param {string} url The url to perform the fetch on
- */
-async function getJSON(url) {
-  try {
-    const response = await fetch(url);
-    return await response.json();
-  } catch (error) {
-    throw error;
-  }
-}
+import getJSON from './getJSON';
 
 /**
  * @param {string} urlGallery The URL to fetch the gallery from
