@@ -36,6 +36,5 @@ function endlessScroll(data) {
 }
 
 events.subscribe('createdCards', (data) => {
-  console.log('data should be loaded');
   endlessScroll(data);
 });

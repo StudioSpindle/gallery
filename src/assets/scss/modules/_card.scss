@@ -1,3 +1,4 @@
+@import '../mixins/media-queries';
 
 .card {
   background-color: $white;
@@ -8,7 +9,12 @@
 .card__image {
   border-top-left-radius: 1.5rem;
   border-top-right-radius: 1.5rem;
-  max-width: 100%;
+}
+
+@include for-size(phone-only) {
+  .card__image {
+    max-width: 100%;
+  }
 }
 
 .card__title {
