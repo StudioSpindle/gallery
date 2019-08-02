@@ -1,4 +1,5 @@
 import { apiUrlGallery, apiUrlPhoto } from '../api';
+import { htmlToElement } from '../utilities';
 import getTotalAmountPhotos from './getTotalAmountPhotos';
 import generateCardHTML from './generateCardHTML';
 import getGalleryPhotos from './getGalleryPhotos';
@@ -9,21 +10,19 @@ import events from './events';
  * @param {number} pageNumber The page number to start from
  */
 export default async function loadPhotos(destLocation, pageNumber) {
-  const loaderTemplate = document.createElement('template');
-  const loaderHTML = '<div id="js-loading">Loading</div>';
-  loaderTemplate.innerHTML = loaderHTML;
+  const htmlLoader = '<div id="js-loading">Loading</div>';
+  const htmlEndOfResults = '<div id="js-end-of-results">No more photos in this gallery</div>';
 
   const totalPhotos = await getTotalAmountPhotos(apiUrlGallery);
   const photosPerPage = 6;
-
-  const amountOfPhotos = photosPerPage * pageNumber - photosPerPage;
-  const noPhotosLeft = amountOfPhotos > totalPhotos;
+  const currentAmountOfPhotos = photosPerPage * pageNumber - photosPerPage;
+  const noPhotosLeft = currentAmountOfPhotos > totalPhotos;
   if (noPhotosLeft) {
-    // reached the end...
+    destLocation.appendChild(htmlToElement(htmlEndOfResults));
     return;
   }
 
-  destLocation.appendChild(loaderTemplate.content.firstChild);
+  destLocation.appendChild(htmlToElement(htmlLoader));
 
   getGalleryPhotos(`${apiUrlGallery}&page=${pageNumber}&per_page=${photosPerPage}`, apiUrlPhoto)
     .then((data) => {

@@ -10,7 +10,7 @@ events.subscribe('createdCards', (data) => {
   const { container, currentPage } = data;
   let scrollFired = 0;
 
-  // TODO: improvement would be to throttle this scroll event
+  // TODO: Performance improvement would be to throttle this scroll event
   window.addEventListener('scroll', () => {
     if (scrollFired === 0) {
       const rect = container.getBoundingClientRect();
