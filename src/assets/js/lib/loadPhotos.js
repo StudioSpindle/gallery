@@ -34,7 +34,9 @@ export default async function loadPhotos(destLocation, pageNumber) {
     .catch((rej) => {
       const loader = document.getElementById('js-loading');
       const errorFeedback = document.createElement('section');
-      destLocation.removeChild(loader);
+      if (loader) {
+        destLocation.removeChild(loader);
+      }
       errorFeedback.innerHTML = `
         <h2>An error occured.</h2>
         <p>${rej}</p>

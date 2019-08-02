@@ -1,9 +1,10 @@
-
 @import '../mixins/media-queries';
 
 .gallery {
   display: flex;
-  padding: $scale-l;
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
 }
 
 .gallery__item {
@@ -16,14 +17,14 @@
     flex-direction: column;
   }
 
-  .gallery__item {
+  .gallery__item:not(:last-child) {
     margin-bottom: $scale-xl;
   }
 }
 
 @include for-size(tablet-portrait-up) {
-  .gallery__item {
-    margin: 0 $scale-l;
+  .gallery__item:not(:first-child) {
+    margin-left: $scale-l;
   }
 }
 

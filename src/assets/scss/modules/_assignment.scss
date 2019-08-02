@@ -1,0 +1,24 @@
+@import '../mixins/media-queries';
+
+.independent-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.independent-container {
+  align-items: center;
+  background-color: red;
+}
+
+@include for-size(phone-only) {
+  .independent-container {
+    height: 600px;
+    width: 400px;
+  }
+}
+
+@include for-size(tablet-portrait-up) {
+  .independent-container {
+    width: 800px;
+  }
+}

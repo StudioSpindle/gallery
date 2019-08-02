@@ -8,8 +8,18 @@
 // Modules
 @import './modules/card';
 @import './modules/gallery';
+@import './modules/assignment';
 
-// Temporarily undefined 
+// Temporarily undefined
 body {
   background-color: $grey;
+}
+
+.test-independent-container {
+  width: 600px;
+  display:flex;
+  background-color: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
