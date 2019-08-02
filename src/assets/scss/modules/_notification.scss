@@ -8,6 +8,6 @@
 
 @include for-size(tablet-portrait-up) {
   .notification-state {
-    padding: $scale-xl ($scale-xl*2) $scale-xl $scale-xl;
+    padding: $scale-xl ($scale-xl * 2) $scale-xl $scale-xl;
   }
 }

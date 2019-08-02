@@ -24,10 +24,6 @@ describe('home page', () => {
     expect(document.getElementById('js-gallery')).toBeTruthy();
   });
 
-  it('starts with a loading indicator when initially loading the page', async () => {
-    expect(queryByText(document.body, 'Loading')).toBeTruthy();
-  });
-
   // TODO: make this function
   it.skip('loads all the cards on the page', async (done) => {
     const browser = await puppeteer.launch({
@@ -41,6 +37,9 @@ describe('home page', () => {
       waitUntil: 'networkidle2',
     });
     const bodyHTML = await page.evaluate(() => document.body.innerHTML);
+
+    expect(queryByText(document.body, 'Loading')).toBeTruthy();
+
     expect(bodyHTML).toBeTruthy();
     expect(queryByText(document, /planes/i)).toBeTruthy();
     expect(queryAllByAltText(document, /Image named planes/i)).toBeTruthy();

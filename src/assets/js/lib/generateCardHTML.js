@@ -31,26 +31,24 @@ export default function generateCardHTML(data, destNode) {
         srcSet = `${photoSrcMedium.source} 320w`;
         sizes = '(min-width: 600px) 320px';
       }
-      // for some images the large size is not available
-      if (photoSrcLarge) {
-        srcSet = `${photoSrcMedium.source} 720w`;
-        sizes = ', (min-width: 900px) 720px';
-      }
       // browsers that don't have srcset will fallback on src,
       //  therefore the medium size is used
       template.innerHTML += `
         <div class="card gallery__item">
-          <img 
-            class="card__image"     
-            alt="Image named ${photo.title}" 
-            src="${photoSrcMedium.source}"
-            srcset="${srcSet}"
-            sizes="${sizes}"
-          />
-          ${photo.title ? `
-            <div class="card__title">
-              <h2 class="serif">${photo.title}</h2>
-            </div>` : ''}`;
+          <a href="${photoSrcLarge ? photoSrcLarge.source : photoSrcMedium}">
+            <img 
+              class="card__image"     
+              alt="Image named ${photo.title}" 
+              src="${photoSrcMedium.source}"
+              srcset="${srcSet}"
+              sizes="${sizes}"
+            />
+            ${photo.title ? `
+              <div class="card__title">
+                <h2 class="serif">${photo.title}</h2>
+              </div>` : ''}
+          </a>
+        </div>`;
     }
   });
 

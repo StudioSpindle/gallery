@@ -35,7 +35,7 @@ describe('generateCardHTML', () => {
     expect(queryAllByAltText(document, /Image named undefined/i)).toBeTruthy();
   });
 
-  it('to display at least an image if no title is supplied', () => {
+  it('to display three cards when correct data is supplied', () => {
     generateCardHTML(photos, destContainer);
     expect(queryByText(document, /first photo/i)).toBeTruthy();
     expect(queryAllByAltText(document, /Image named first photo/i)).toBeTruthy();

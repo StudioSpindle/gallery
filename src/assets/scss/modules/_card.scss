@@ -1,26 +1,27 @@
 @import '../mixins/media-queries';
 @import '../mixins/shadow';
 
+@include for-size(phone-only) {
+  .card__image {
+    max-width: 100%;
+  }
+}
+
 .card {
+  @include shadow(low);
   background-color: $white;
   border-radius: 1.5rem;
   width: 100%;
-  @include shadow(low);
+
   &:hover {
-    cursor: pointer;
     @include shadow(high);
+    cursor: pointer;
   }
 }
 
 .card__image {
   border-top-left-radius: 1.5rem;
   border-top-right-radius: 1.5rem;
-}
-
-@include for-size(phone-only) {
-  .card__image {
-    max-width: 100%;
-  }
 }
 
 .card__title {

@@ -7,7 +7,6 @@ The goal was to create an infinite scrolling gallery.
 
 It works independent of the surrounding HTML element which you can test
 
-
 # Fickr API
 
 In order for this project to work you have to use an API key. Request one here: https://www.flickr.com/services/api/misc.api_keys.html
@@ -24,6 +23,10 @@ $ touch .env; open .env;
 ```
 API_KEY = <your-key>
 ```
+
+# CI
+
+Typically the tests should run on a CI.
 
 # Build production
 
