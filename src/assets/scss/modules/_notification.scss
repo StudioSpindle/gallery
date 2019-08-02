@@ -1,0 +1,13 @@
+@import '../mixins/media-queries';
+
+@include for-size(phone-only) {
+  .notification-state {
+    text-align: center;
+  }
+}
+
+@include for-size(tablet-portrait-up) {
+  .notification-state {
+    padding: $scale-xl ($scale-xl*2) $scale-xl $scale-xl;
+  }
+}

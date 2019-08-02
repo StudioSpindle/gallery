@@ -1,0 +1,19 @@
+@import '../mixins/media-queries';
+
+.page-title {
+  color: $white;
+}
+
+@include for-size(phone-only) {
+  .page-title {
+    text-align: center;
+    padding: $scale-xl;
+    margin-top: .5rem;
+  }
+}
+
+@include for-size(tablet-portrait-up) {
+  .page-title {
+    padding: $scale-xl;
+  }
+}

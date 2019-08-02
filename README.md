@@ -1,6 +1,13 @@
 
 Example of a gallery project using the Flickr API.
 
+# Purpose of this example
+
+The goal was to create an infinite scrolling gallery.
+
+It works independent of the surrounding HTML element which you can test
+
+
 # Fickr API
 
 In order for this project to work you have to use an API key. Request one here: https://www.flickr.com/services/api/misc.api_keys.html
@@ -23,10 +30,6 @@ API_KEY = <your-key>
 ```
 npm run build:prod
 ```
-
-# CI
-
-...
 
 # Contributing
 

@@ -20,10 +20,18 @@ function endlessScroll(data) {
       let reachedEnd;
 
       if (orientationVertical) {
+
+        console.log('height - top: ', container.scrollHeight - container.scrollTop);
+        console.log('container height: ', containerRect.height);
+
         reachedEnd = container.scrollHeight - container.scrollTop === containerRect.height;
       } else {
         const vWidth = containerRect.width;
         const cardRightEnd = lastCardRect.right - containerRect.left;
+
+        console.log('vWidth: ', vWidth);
+        console.log('cardRightEnd: ', cardRightEnd);
+
         reachedEnd = vWidth - cardRightEnd === 0;
       }
 

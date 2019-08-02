@@ -10,8 +10,8 @@ import events from './events';
  * @param {number} pageNumber The page number to start from
  */
 export default async function loadPhotos(destLocation, pageNumber) {
-  const htmlLoader = '<div id="js-loading">Loading</div>';
-  const htmlEndOfResults = '<div id="js-end-of-results">No more photos in this gallery</div>';
+  const htmlLoader = '<div id="js-loading" class="notification-state serif">Loading</div>';
+  const htmlEndOfResults = '<div id="js-end-of-results" class="notification-state serif">No more photos in this gallery</div>';
 
   const totalPhotos = await getTotalAmountPhotos(apiUrlGallery);
   const photosPerPage = 6;

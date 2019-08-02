@@ -9,10 +9,12 @@
 @import './modules/card';
 @import './modules/gallery';
 @import './modules/assignment';
+@import './modules/notification';
+@import './modules/page';
 
 // Temporarily undefined
 body {
-  background-color: $grey;
+  background-color: $grey-dark;
 }
 
 .test-independent-container {
