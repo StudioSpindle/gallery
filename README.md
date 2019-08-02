@@ -34,7 +34,7 @@ npm run build:prod
 npm run watch
 ```
 
-This starts a local development server to work on.
+This starts a local development server to work on, and opens the gallery in a browser. 
 
 ## Testing
 
@@ -65,7 +65,7 @@ Example IDE linting plugin (used Visual Studio Code):
 # Style Scaffolding
 
 Generic styles are included in all files, and in that way are global.
-Modules on the other hand are not interchangable and be independent.
+Modules on the other hand are not interchangable and independent.
 
 # Authors Notes:
 

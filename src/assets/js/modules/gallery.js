@@ -9,7 +9,7 @@ const loader = document.getElementById('js-loading');
 getGalleryPhotos(apiUrlGallery, apiUrlPhoto)
   .then((data) => {
     generateCardHTML(data, galleryDomNode);
-    events.publish('createdCards', { url: 'test' });
+    events.publish('createdCards', { container: galleryDomNode });
     galleryDomNode.removeChild(loader);
   })
   .catch((rej) => {
