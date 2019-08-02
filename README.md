@@ -3,9 +3,7 @@ Example of a gallery project using the Flickr API.
 
 # Purpose of this example
 
-The goal was to create an infinite scrolling gallery.
-
-It works independent of the surrounding HTML element which you can test
+The goal was to create a responsive image gallery and make use of the Flickr API. One of the features is It works independent of the surrounding HTML element. Another feature is infinite scrolling.
 
 # Fickr API
 

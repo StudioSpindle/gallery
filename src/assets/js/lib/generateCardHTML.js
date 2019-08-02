@@ -43,10 +43,10 @@ export default function generateCardHTML(data, destNode) {
               srcset="${srcSet}"
               sizes="${sizes}"
             />
-            ${photo.title ? `
-              <div class="card__title">
-                <h2 class="serif">${photo.title}</h2>
-              </div>` : ''}
+            
+            <div class="card__title">
+              <h2 class="serif">${photo.title ? photo.title : 'untitled'}</h2>
+            </div>
           </a>
         </div>`;
     }
