@@ -6,22 +6,35 @@ function loadMore(container, currentPage) {
   loadPhotos(container, loadPageNumber);
 }
 
-events.subscribe('createdCards', (data) => {
+function endlessScroll(data) {
   const { container, currentPage } = data;
+  const orientationHorizontal = window.matchMedia('(min-width: 600px)'); // matches query in SCSS to stack photo's vertically
+  const orientationVertical = !orientationHorizontal;
   let scrollFired = 0;
 
   // TODO: Performance improvement would be to throttle this scroll event
   window.addEventListener('scroll', () => {
     if (scrollFired === 0) {
       const rect = container.getBoundingClientRect();
-      const vHeight = window.innerHeight || document.documentElement.clientHeight;
+      let reachedEnd;
 
-      const reachedEnd = Math.round(rect.bottom) === vHeight;
+      if (orientationVertical) {
+        const vHeight = rect.height;
+        reachedEnd = Math.round(rect.bottom) === vHeight;
+      } else {
+        const vWidth = rect.width;
+        const xy = rect.right - rect.left;
+        reachedEnd = xy - vWidth === 0;
+      }
+
       if (reachedEnd) {
-        console.log('reached end');
         loadMore(container, currentPage);
         scrollFired = 1;
       }
     }
   });
+}
+
+events.subscribe('createdCards', (data) => {
+  endlessScroll(data);
 });
